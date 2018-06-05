@@ -1,0 +1,73 @@
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = auto
+
+[color "branch"]
+    current = green reverse
+    local = green
+    remote = yellow
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = cyan
+
+[alias]
+    st = status
+    ss = status -sb
+    ci = commit
+    co = checkout
+    rb = rebase
+    br = branch
+    dc = diff --cached
+    pf = push --force
+    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %ci)%Creset'
+
+[core]
+    whitespace = -trailing-space
+    autocrlf = input
+    fileMode = false
+    editor = nano
+
+[status]
+    showUntrackedFiles = all
+
+[diff]
+    mnemonicprefix = true
+    algorithm = patience
+
+[difftool]
+    prompt = false
+
+[grep]
+    extendedRegexp = true
+[log]
+    abbrevCommit = true
+
+[merge]
+    conflictstyle = diff3
+
+[mergetool]
+    keepBackup = false
+    keepTemporaries = false
+    prompt = false
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+
+[user]
+	name = Seifallah Azzabi
+    email = seifallah.azzabi@gmail.com
+[branch]
+        autosetuprebase = always
