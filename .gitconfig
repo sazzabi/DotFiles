@@ -21,15 +21,16 @@
     untracked = cyan
 
 [alias]
-    st = status
-    ss = status -sb
-    ci = commit
-    co = checkout
-    rb = rebase
-    br = branch
-    dc = diff --cached
-    pf = push --force
-    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %ci)%Creset'
+    st  = status
+    ss  = status -sb
+    ci  = commit
+    co  = checkout
+    rb  = rebase
+    br  = branch
+    dc  = diff --cached
+    dif = diff
+    pf  = push --force
+    lg  = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %ci)%Creset'
 
 [core]
     whitespace = -trailing-space
