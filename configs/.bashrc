@@ -129,3 +129,9 @@ fi
 
 #On inclu la coloration git :
 . ~/.bashrc_coloration.sh
+
+alias switch71='~/DotFiles/switch-php-7.1.sh'
+alias switch56='~/DotFiles/switch-php-5.6.sh'
+
+export APPLICATION_ENV="dev"
+export SYMFONY_ENV="dev"
