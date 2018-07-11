@@ -1,10 +1,14 @@
 ppa=ondrej/php
 
 # Install everything
-install: update apache php56 php71
+install: update apache php56 php71 composer
 	echo '=[ Installing... ]='
 	sudo apt install -y git curl terminator
-	
+	sudo apt install -y \
+	    apt-transport-https \
+	    ca-certificates \
+	    software-properties-common
+
 	# Backup .bachrc
 	cp ~/.bashrc ~/.bashrc_back
 	cp configs/.bashrc ~/.bashrc
@@ -30,10 +34,11 @@ apache:
 	sudo a2enmod headers
 	sudo a2enmod rewrite
 	sudo a2enmod expires
+	sudo a2enmod macro
 	
 	echo '=[ Installed Apache... ]='
 
-php56: composer
+php56:
 	echo '=[ Installing PHP 5.6... ]='
 	
 	if ! grep -q "^deb .*$(ppa)" /etc/apt/sources.list /etc/apt/sources.list.d/*; then \
@@ -47,7 +52,7 @@ php56: composer
 	
 	echo '=[ Installed PHP 5.6... ]='
 
-php71: composer
+php71:
 	echo '=[ Installing PHP 7.1... ]='
 	
 	if ! grep -q "^deb .*$(ppa)" /etc/apt/sources.list /etc/apt/sources.list.d/*; then \
