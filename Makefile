@@ -66,11 +66,24 @@ php71:
 	
 	echo '=[ Installed PHP 7.1... ]='
 
+php72:
+	echo '=[ Installing PHP 7.2... ]='
+	
+	if ! grep -q "^deb .*$(ppa)" /etc/apt/sources.list /etc/apt/sources.list.d/*; then \
+		sudo add-apt-repository -y ppa:$(ppa); \
+		sudo apt update; \
+	fi
+	sudo apt install -y --no-install-recommends php7.2 libapache2-mod-php7.2 \
+		php7.2-mysql php7.2-curl php7.2-json php7.2-gd php7.2-msgpack \
+		php7.2-memcached php7.2-intl php7.2-sqlite3 php7.2-gmp php7.2-geoip php7.2-mbstring \
+		php7.2-redis php7.2-xml php7.2-zip php7.2-bcmath
+	
+	echo '=[ Installed PHP 7.2... ]='
+
 composer:
 	echo '=[ Installing Composer... ]='
 	
 	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-	php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 	php composer-setup.php
 	php -r "unlink('composer-setup.php');"
 	sudo mv composer.phar /usr/local/bin/composer
